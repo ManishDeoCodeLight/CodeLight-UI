@@ -6,6 +6,7 @@ import { ConfigFileUpdateComponent } from './config-file-update/config-file-upda
 import { MaterialExampleModule } from '../material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogHistoryComponent } from './log-history/log-history.component';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     ConfigDashboardComponent,
     CountryInfoComponent,
-    ConfigFileUpdateComponent
+    ConfigFileUpdateComponent,
+    LogHistoryComponent
   ],
   imports: [
     CommonModule,
