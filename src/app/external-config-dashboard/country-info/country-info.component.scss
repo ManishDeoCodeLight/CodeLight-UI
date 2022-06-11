@@ -1,0 +1,22 @@
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  .example-container>#fetchButton {
+    margin-left: 8px;
+    display: inline-block !important;
+  }
+  .example-container .mat-form-field {
+    width: 220px;
+  }
+  
+  .example-container form {
+    margin-bottom: 20px;
+  }
+  
+  .example-container form > * {
+    margin: 5px 0;
+  }
+  
+  .example-container .button {
+    margin: 0 12px;
+  }

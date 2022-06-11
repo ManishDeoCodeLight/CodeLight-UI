@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, startWith, map } from 'rxjs';
+import { ConfigDashboardService } from '../config-dashboard.service';
 import {region} from '../config.model';
 
 @Component({
@@ -11,23 +12,34 @@ import {region} from '../config.model';
 export class CountryInfoComponent implements OnInit {
 
   myControl = new FormControl('');
-  options: region[] = [{label:"India" , value:"india"}, {label:"USA" , value:"usa"} , {label:"UK" , value:"uk"}];
+  // options: region[] = [{label:"India" , value:"india"}, {label:"USA" , value:"usa"} , {label:"UK" , value:"uk"}];
+  options: region[] | undefined;
   filteredOptions!: Observable<region[]>;
-
+  selectedItem:any | undefined;
+ constructor(private configDashboardService: ConfigDashboardService) {}
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
-    );
+    this.configDashboardService.getConfig().subscribe(config => {
+      console.log("config" , config);
+      this.options = config;
+      this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value || '')),
+      );
+    })
+   
+
+   /* this.myControl.valueChanges.subscribe(value=> {
+      console.log(this.selectedItem);
+    })*/
   }
   private _filter(value: string): region[] {
     const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.label.toLowerCase().includes(filterValue));
+    
+    return this.options? this.options.filter(option => option.label.toLowerCase().includes(filterValue)): [];
   }
-
-  getSelectedRegionDetail(countryName: string) {
-    alert(countryName);
+ 
+  getConfig(){
+    console.log(this.selectedItem);
   }
 
 }

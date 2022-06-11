@@ -4,13 +4,18 @@
       <input type="text"
              placeholder="Pick one"
              aria-label="region"
-             matInput
-             [formControl]="myControl"
+             matInput             
+             [formControl]="myControl"             
              [matAutocomplete]="auto">
-      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.label">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.label" (click)="selectedItem=option">
           {{option.label}}
         </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
+      </mat-autocomplete>     
+    </mat-form-field>   
+   
+    <div id="fetchButton" style="display: inline-block; margin-left: 10px;">
+        <button mat-raised-button (click)="getConfig()">Fetch Config</button>
+       </div>
+  
   </form>

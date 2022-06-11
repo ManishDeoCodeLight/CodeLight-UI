@@ -1,9 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { region } from './config.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigDashboardService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+
+  private readonly  configUrl = 'assets/region.json';
+
+  getConfig() {
+    return this.http.get<region[]>(this.configUrl);
+  }
 }
