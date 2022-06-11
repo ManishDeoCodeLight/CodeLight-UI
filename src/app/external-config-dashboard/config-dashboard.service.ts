@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { region } from './config.model';
 
 @Injectable({
@@ -7,6 +8,8 @@ import { region } from './config.model';
 })
 export class ConfigDashboardService {
   
+  subject:Subject<any> = new Subject();
+
   constructor(private http: HttpClient) { }
 
 

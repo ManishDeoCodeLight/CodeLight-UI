@@ -1,17 +1,17 @@
-<form>
+<form #f="ngForm">
     <div style=" height:500px; overflow-y : scroll;">
         <ng-container *ngFor="let property of regionConfig | keyvalue let i = index">           
               <div>   
                 <label style="position: relative;width: 300px;  left: 0;display: inline-block; padding-left: 50px;">{{property.key}}</label>
                 <mat-form-field [style.width.px]=500 class="example-full-width" appearance="fill">      
-                  <input matInput placeholder="you can update value" [name]="property.value+''" (change)="getChangesValue($event , property.key)"  [(ngModel)]="property.value">
+                  <input matInput placeholder="you can update value" [name]="property.key+''" (change)="getChangesValue($event , property.key)"  [(ngModel)]="property.value">
                 </mat-form-field>
                </div>
         </ng-container>
     </div>
     <div style="margin-top: 50px; margin-left: 400px;">
-        <button mat-raised-button >Save</button>
-        <button mat-raised-button style="margin-left: 10px;" (click)="getReset()">Reset</button>
+        <button mat-raised-button (click)="saveConfig()">Save</button>
+        <button mat-raised-button style="margin-left: 10px;" >Reset</button>
     </div>
     
 </form>

@@ -40,6 +40,9 @@ export class CountryInfoComponent implements OnInit {
  
   getConfig(){
     console.log(this.selectedItem);
+    this.configDashboardService.getRegionWiseConfig(this.selectedItem.value).subscribe(config => {
+      this.configDashboardService.subject.next(config);
+   })
   }
 
 }
