@@ -15,4 +15,8 @@ export class ConfigDashboardService {
   getConfig() {
     return this.http.get<region[]>(this.configUrl);
   }
+
+  getLogInfo() {
+    return this.http.get<any[]>("assets/logInfo.json");
+  }
 }
