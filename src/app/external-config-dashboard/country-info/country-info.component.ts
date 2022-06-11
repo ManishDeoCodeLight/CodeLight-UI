@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable, startWith, map } from 'rxjs';
+import {region} from '../config.model';
 
 @Component({
   selector: 'country-info',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountryInfoComponent implements OnInit {
 
-  constructor() { }
+  myControl = new FormControl('');
+  options: region[] = [{label:"India" , value:"india"}, {label:"USA" , value:"usa"} , {label:"UK" , value:"uk"}];
+  filteredOptions!: Observable<region[]>;
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
+  }
+  private _filter(value: string): region[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.label.toLowerCase().includes(filterValue));
+  }
+
+  getSelectedRegionDetail(countryName: string) {
+    alert(countryName);
   }
 
 }
