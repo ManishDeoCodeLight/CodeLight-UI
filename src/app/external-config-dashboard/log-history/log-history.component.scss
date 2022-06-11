@@ -1,4 +1,23 @@
+.mat-table
+{
+  background-color:transparent!important;
+  border: solid 1px grey; 
+}
 table {
-    width: 100%;
-  }
-  
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 500px;
+  border-collapse: collapse;
+  // border-radius: 1em;
+}
+
+th.mat-header-cell {
+  text-align: left;
+  max-width: 300px;
+}
+
+table tr:last-child td /*To remove the last border*/
+{
+  border-bottom:0 solid
+}
