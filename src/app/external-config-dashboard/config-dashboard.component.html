@@ -3,9 +3,16 @@
         <country-info></country-info>
     </div>
     <div>
-        <config-file-update></config-file-update>
-    </div>
+        <mat-tab-group mat-align-tabs="start">
+            <mat-tab label="Dashboard">
+                <config-file-update></config-file-update>
+            </mat-tab>
+            <mat-tab label="Log History">
+                <log-history></log-history>
+            </mat-tab>            
+        </mat-tab-group>          
+    </div>   
     <div>
-        <log-history></log-history>
+        
     </div>
 </div>
