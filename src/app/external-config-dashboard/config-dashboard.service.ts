@@ -6,7 +6,7 @@ import { region } from './config.model';
   providedIn: 'root'
 })
 export class ConfigDashboardService {
-
+  
   constructor(private http: HttpClient) { }
 
 
@@ -21,15 +21,15 @@ export class ConfigDashboardService {
   getLogInfo() {
     return this.http.get<any[]>("assets/logInfo.json");
   }
-  
+
   getRegionWiseConfig(region: string) {
     let configFetchURL;
     if (region === "india") {
-      configFetchURL= 'assets/india.json';
+      configFetchURL = 'assets/india.json';
     } else if (region === "usa") {
-      configFetchURL= 'assets/usa.json';
-    } else{
-      configFetchURL= 'assets/uk.json'
+      configFetchURL = 'assets/usa.json';
+    } else {
+      configFetchURL = 'assets/uk.json'
     }
     return this.http.get<any>(configFetchURL);
   }

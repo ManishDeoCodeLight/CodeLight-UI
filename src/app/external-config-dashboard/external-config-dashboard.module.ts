@@ -7,6 +7,7 @@ import { MaterialExampleModule } from '../material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogHistoryComponent } from './log-history/log-history.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 
 
@@ -15,7 +16,8 @@ import { LogHistoryComponent } from './log-history/log-history.component';
     ConfigDashboardComponent,
     CountryInfoComponent,
     ConfigFileUpdateComponent,
-    LogHistoryComponent
+    LogHistoryComponent,
+    DynamicFormComponent
   ],
   imports: [
     CommonModule,

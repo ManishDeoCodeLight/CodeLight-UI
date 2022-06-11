@@ -1,11 +1,13 @@
 <div class="dashboard">
-    <div>
-        <country-info></country-info>
-    </div>
+    
     <div>
         <mat-tab-group mat-align-tabs="start">
             <mat-tab label="Dashboard">
-                <config-file-update></config-file-update>
+                <div style="margin:10px">
+                    <country-info></country-info>
+                    <config-file-update></config-file-update>
+                </div>
+                    
             </mat-tab>
             <mat-tab label="Log History">
                 <log-history></log-history>
