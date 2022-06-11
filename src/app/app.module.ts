@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExternalConfigDashboardModule } from './external-config-dashboard/external-config-dashboard.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ExternalConfigDashboardModule } from './external-config-dashboard/exter
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ExternalConfigDashboardModule
+    ExternalConfigDashboardModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
