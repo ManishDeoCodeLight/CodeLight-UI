@@ -11,7 +11,7 @@ import {region} from '../config.model';
 })
 export class CountryInfoComponent implements OnInit {
 
-  myControl = new FormControl('');
+  myControl = new FormControl('India');
   // options: region[] = [{label:"India" , value:"india"}, {label:"USA" , value:"usa"} , {label:"UK" , value:"uk"}];
   options: region[] | undefined;
   filteredOptions!: Observable<region[]>;
@@ -41,7 +41,7 @@ export class CountryInfoComponent implements OnInit {
   getConfig(){
     console.log(this.selectedItem);
     this.configDashboardService.getRegionWiseConfig(this.selectedItem.value).subscribe(config => {
-      this.configDashboardService.subject.next(config);
+    this.configDashboardService.subject.next(config);
    })
   }
 

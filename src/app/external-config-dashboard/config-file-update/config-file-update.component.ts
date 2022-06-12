@@ -34,10 +34,14 @@ export class ConfigFileUpdateComponent implements OnInit {
     });
   }
 
-  /*getReset(form: NgForm) {
-    this.regionConfig = this.backupRegionConfig;
-    form.reset(this.regionConfig);
-  }*/
+  getReset() {
+    const countrty = this.configDashboardService.getCountry();
+    this.configDashboardService.getRegionWiseConfig(countrty).subscribe(config => {
+      this.regionConfig = config;
+      this.backupRegionConfig = config;
+      this.populateRegionMap();
+   })
+  }
 
   getChangesValue(event: any , label:any) {
     console.log(event.target.value , label);

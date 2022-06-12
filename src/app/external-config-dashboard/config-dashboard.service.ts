@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { R3TargetBinder } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { region } from './config.model';
@@ -9,6 +10,7 @@ import { region } from './config.model';
 export class ConfigDashboardService {
   
   subject:Subject<any> = new Subject();
+  private country: any;
 
   constructor(private http: HttpClient) { }
 
@@ -26,6 +28,7 @@ export class ConfigDashboardService {
   }
 
   getRegionWiseConfig(region: string) {
+    this.country = region;
     let configFetchURL;
     if (region === "india") {
       configFetchURL = 'assets/india.json';
@@ -35,5 +38,9 @@ export class ConfigDashboardService {
       configFetchURL = 'assets/uk.json'
     }
     return this.http.get<any>(configFetchURL);
+  }
+
+  getCountry() {
+    return this.country;
   }
 }

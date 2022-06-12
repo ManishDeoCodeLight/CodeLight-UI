@@ -1,4 +1,4 @@
-<form #f="ngForm">
+<form>
     <div style=" height:500px; overflow-y : scroll;">
         <ng-container *ngFor="let property of regionConfig | keyvalue let i = index">           
               <div>   
@@ -11,7 +11,7 @@
     </div>
     <div style="margin-top: 50px; margin-left: 400px;">
         <button mat-raised-button (click)="saveConfig()">Save</button>
-        <button mat-raised-button style="margin-left: 10px;" >Reset</button>
+        <button mat-raised-button (click)="getReset()" style="margin-left: 10px;" >Reset</button>
     </div>
     
 </form>
