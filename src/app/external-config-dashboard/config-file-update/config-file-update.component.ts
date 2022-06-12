@@ -58,7 +58,9 @@ export class ConfigFileUpdateComponent implements OnInit {
   }
 
   saveConfig() {
+    this.modifiedFields.country = sessionStorage.getItem("country");
     console.log(this.modifiedFields);
+    this.configDashboardService.saveConfig(this.modifiedFields);
   }
 
 }

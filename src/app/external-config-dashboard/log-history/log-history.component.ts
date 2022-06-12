@@ -27,7 +27,7 @@ export class LogHistoryComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  displayedColumns: string[] = ["propertyLevel", "label", "propName", "oldValue", "newValue", "updatedBy", "updatedOn"];
+  displayedColumns: string[] = ["propertyLevel", "propName", "oldValue", "newValue", "updatedBy", "updatedOn"];
   
 
   public doFilter = (event: Event) => {
